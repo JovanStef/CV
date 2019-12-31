@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Permanent+Marker|Righteous&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <title>CV Jovan Stefanovski</title>
+<style>
+/* font-family: 'Comfortaa', cursive;
+font-family: 'Righteous', cursive;
+font-family: 'Permanent Marker', cursive; */
+
+body{
+    margin:0px auto;
+    font-family: 'Comfortaa', cursive;
+    background-image: url(https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    background-position: center;
+    background-size: cover;
+}
+*{
+    box-sizing: border-box;
+    /* border: 1px solid black; */
+    color:white;
+}
+a{
+    text-decoration: none;
+}
+
+p,h1{
+    margin:0px;
+}
+.flex{
+    display:flex
+}
+.box-70{
+    width: 70%;
+}
+.box-50{
+    width: 50%;
+}
+.box-30{
+    width: 30%;
+}
+.master-wrapper{
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.603);
+    flex-flow: row nowrap;
+    padding:100px;
+}
+.nav-bio-wrapper{
+    /* background-color: rgba(253, 253, 253, 0.603); */
+    flex-flow: row nowrap;
+}
+.menu{
+flex-flow: column;
+align-items: center;
+text-align: center;
+}
+.menu-icon{
+    height:50px;
+    width: 100%;
+    padding: 5px;
+    background-color: rgb(107, 107, 107);
+    border-radius: 10px 0 0 10px;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin:0px 0px 10px 0px;
+    justify-content: space-evenly;
+font-size: 12px;
+}
+.menu-icon:hover{
+    background-color: yellowgreen;
+}
+.menu-icon i{
+    padding:10px;
+    font-size: 20px;
+}
+.info-bio{
+    flex-flow: column nowrap;
+    align-content: center;
+    justify-content: space-between;
+    position: relative;
+
+}
+.color-wrapper{
+    height: 65%;
+    flex-flow: column;
+    align-items: center;
+    overflow: hidden;
+}
+.color-wrapper img{
+    width: 100%;
+
+}
+.info-wrapper{
+    background-color: rgb(107, 107, 107);
+height: 35%;
+border-radius: 0 0 10px 10px;
+
+    flex-flow: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+.cv-image{
+    position: absolute;
+    bottom:25%;
+    flex-flow: column;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid yellowgreen;
+}
+.cv-image img{
+    width: 270%;
+}
+.main-head{
+    text-align: center;
+    font-size: 25px;
+}
+.last-name{
+    color: yellowgreen;
+    font-style: italic;
+}
+.info-icon-wrapper{
+    width: 100%;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    padding: 10px;
+}
+.info-icon-wrapper i{
+    font-size: 20px;
+}
+.info-icon-wrapper i:hover{
+    color: yellowgreen;
+}
+.content{
+    height: 100%;
+    flex-flow: column;
+    overflow: scroll;
+}
+
+.section{
+    flex-flow: column;
+    padding: 20px;
+    width: 100%;
+    height:500px;
+    
+}.section .fa-code ,.section .fa-pen-nib,.section .fa-info{
+    padding: 20px;
+    font-size: 100px;
+}
+
+</style>
+</head>
+<body>
+    <div class="master-wrapper flex">
+        <div class="nav-bio-wrapper flex box-30">
+            <div class="menu flex box-30">
+                <a href="#web-design"> <div class="menu-icon flex" id="web">
+                    <i class="fas fa-code"></i>
+                    <p class="web-icon-head">Web design</p>
+                </div></a>
+                <a href="#graphic-design"><div class="menu-icon flex" id="graphic">
+                    <i class="fas fa-pen-nib"></i>
+                    <p class="graphic-icon-head">Graphic design</p>
+                </div></a>
+                <a href="#bio"><div class="menu-icon flex" id="info">
+                    <i class="fas fa-info"></i>
+                    <p class="info-icon-head">Bio & Contact</p>
+                </div></a>
+            </div>
+            <div class="info-bio flex box-70">
+                <div class="color-wrapper flex">
+                    <img src="https://images.pexels.com/photos/1531677/pexels-photo-1531677.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
+
+                </div>
+                
+                <div class="info-wrapper flex">
+                    <div class="cv-image flex">
+                        <img src="cv-image.jpg" alt="cv-image.jpg">
+                    </div>
+                    <h1 class="main-head">Jovan <span class="last-name">STEFANOVSKI</span></h1>
+                    <div class="info-icon-wrapper flex">
+                        <a href="https://github.com/JovanStef/" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/jovan-stefanovski-7b16b8192/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/JovanStef/" target="_blank"><i class="far fa-file-pdf"></i></a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="content flex box-70">
+            <div class="section intro flex">
+
+            </div>
+            <div class="section web-section-wrapper flex" id="web-design">
+                <i class="fas fa-code"></i>
+                    <h1 class="web-section-head">Web design</h1>
+                <div class="section">
+                    <i class="fab fa-css3"></i>
+                </div>
+            </div>
+            <div class="section graphic-section-wrapper flex"id="graphic-design">
+                <i class="fas fa-pen-nib"></i>
+                <h1 class="graphic-section-head">Graphic design</h1>
+                <div class="section">
+                    <i class="fab fa-css3"></i>
+                </div>
+            </div>
+            <div class="section contact-section-wrapper flex"id="bio">
+                <i class="fas fa-info"></i>
+                <h1 class="contact-section-head">Bio & Contact</h1>
+                <div class="section">
+                    <i class="fab fa-css3"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
