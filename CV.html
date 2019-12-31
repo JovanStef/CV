@@ -170,6 +170,8 @@ font-family: 'Permanent Marker', cursive; */
         }
 
         .content {
+            border-radius: 10px;
+padding-left: 5px;
             height: 100%;
             flex-flow: column;
             overflow: scroll;
@@ -219,6 +221,32 @@ font-family: 'Permanent Marker', cursive; */
         .sub-section i {
             font-size: 20px;
         }
+        .intro{
+            position: relative;
+            padding: 0px;
+        }
+        .intro h1{
+            top:-5%;
+            padding: 150px;
+            text-align: center;
+            font-weight: bolder;
+            color: white;
+            text-transform: uppercase;
+            position: absolute;
+        }
+        .intro p{
+            font-size: 10px;
+        }
+        .intro-gif{
+            width: 100%;
+            height: 500px;
+        }
+        .intro-gif img{
+            -webkit-filter: grayscale(100%); 
+  filter: grayscale(100%);
+            opacity: 0.2;
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -261,7 +289,7 @@ font-family: 'Permanent Marker', cursive; */
                         <a href="https://github.com/JovanStef/" target="_blank"><i class="fab fa-github"></i></a>
                         <a href="https://www.linkedin.com/in/jovan-stefanovski-7b16b8192/" target="_blank"><i
                                 class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/JovanStef/" target="_blank"><i class="far fa-file-pdf"></i></a>
+                        <a href="https://github.com/JovanStef/CV/blob/master/CV%20Jovan%20Stefanovski1.pdf" target="_blank"><i class="far fa-file-pdf"></i></a>
 
                     </div>
                 </div>
@@ -271,7 +299,9 @@ font-family: 'Permanent Marker', cursive; */
 
         <div class="content flex box-70">
             <div class="section intro flex">
-
+                <h1>“ The most important property of a program is whether it accomplishes the intention of its user. ”
+                   <p> C.A.R. Hoare</p></h1>
+<div class="intro-gif"><img src="https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif" /></div>
             </div>
             <div class="section web-section-wrapper flex" id="web-design">
                 <i class="fas fa-code"></i>
