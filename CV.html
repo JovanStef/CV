@@ -72,20 +72,24 @@ font-family: 'Permanent Marker', cursive; */
 
         .menu {
             flex-flow: column;
-            align-items: center;
+            align-items: flex-start;
             text-align: center;
+        }
+
+        .menu a {
+            width: 110%;
+
         }
 
         .menu-icon {
             height: 50px;
-            width: 100%;
             padding: 5px;
             background-color: rgb(107, 107, 107);
             border-radius: 10px 0 0 10px;
             flex-flow: row nowrap;
             align-items: center;
             margin: 0px 0px 10px 0px;
-            justify-content: space-evenly;
+            justify-content: center;
             font-size: 12px;
         }
 
@@ -252,6 +256,179 @@ font-family: 'Permanent Marker', cursive; */
             opacity: 0.2;
             width: 100%;
         }
+
+        @media only screen and (max-width: 1024px) {
+            .master-wrapper {
+                align-items: flex-start;
+                justify-content: flex-end;
+                padding: 50px;
+                height: auto;
+                position: relative;
+            }
+
+            .content {
+                height: 60%;
+            }
+
+            .nav-bio-wrapper {
+                left: 10px;
+                position: fixed;
+                z-index: 1111;
+
+
+            }
+
+            .info-bio {
+                padding-left: 15px;
+            }
+
+            .info-bio h1 {
+                font-size: 20px;
+            }
+.intro h1{
+    left:0%;
+    top:-25%;
+}
+
+        }
+
+        @media only screen and (max-width: 768px) {
+            .master-wrapper {
+                flex-flow: column nowrap;
+                align-items: center;
+                padding: 20px;
+                position: relative;
+
+            }
+
+            .nav-bio-wrapper {
+                flex-flow: column nowrap;
+                align-items: center;
+                width: 100%;
+                height: 350px;
+                position: static;
+
+            }
+
+            .menu {
+                flex-flow: row;
+                width: 56%;
+                margin-left: 10px;
+                position: fixed;
+                z-index: 1111;
+
+            }
+
+            .menu-icon {
+                width: 95%;
+                border-radius: 0px;
+                text-align: center;
+                font-size: 15px;
+            }
+
+            #web {
+                border-radius: 10px 0 0 0;
+
+            }
+
+            #info {
+                border-radius: 0 10px 0 0;
+
+            }
+
+            .info-bio {
+                margin-top: 60px;
+                width: 55%;
+                height: 100%;
+                padding: 0px;
+            }
+
+            .info-bio h1 {
+                font-size: 120%;
+            }
+
+            .cv-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .content {
+                font-size: 50%;
+                margin: 70px;
+                height: 50%;
+            }
+.intro-gif{
+    height: auto;
+}
+.intro h1{
+    padding: 10px;
+    left:0%;
+    top:15%;
+}
+
+        }
+
+        @media only screen and (max-width: 767px) {
+            .master-wrapper {
+                flex-flow: column nowrap;
+                align-items: center;
+                padding: 20px;
+                height: auto;
+            }
+
+            .nav-bio-wrapper {
+                flex-flow: column nowrap;
+                align-items: center;
+                width: 100%;
+                padding: 0px;
+            }
+
+            .menu {
+                flex-flow: row;
+                width: 100%;
+                margin: 0;
+            }
+
+            .menu-icon {
+                width: 100%;
+                border-radius: 0px;
+                text-align: center;
+                font-size: 15px;
+            }
+
+            #web {
+                border-radius: 10px 0 0 0;
+
+            }
+
+            #info {
+                border-radius: 0 10px 0 0;
+
+            }
+
+            .info-bio {
+                width: 100%;
+                height: 100%;
+                padding: 0px;
+            }
+
+            .info-bio h1 {
+                font-size: 120%;
+            }
+
+            .cv-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .content {
+                font-size: 50%;
+                margin: 70px;
+                width: 100%;
+            }
+
+
+        }
     </style>
 </head>
 
@@ -294,7 +471,7 @@ font-family: 'Permanent Marker', cursive; */
                         <a href="https://github.com/JovanStef/" target="_blank"><i class="fab fa-github"></i></a>
                         <a href="https://www.linkedin.com/in/jovan-stefanovski-7b16b8192/" target="_blank"><i
                                 class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/JovanStef/CV/blob/master/CV%20Jovan%20Stefanovski1.pdf"
+                        <a href="https://github.com/JovanStef/CV/blob/master/CV%20Jovan%20Stefanovski%20ENG.pdf"
                             target="_blank"><i class="far fa-file-pdf"></i></a>
 
                     </div>
