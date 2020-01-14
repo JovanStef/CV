@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Permanent+Marker|Righteous&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <title>CV Jovan Stefanovski JQuery</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <style>
+        /* font-family: 'Comfortaa', cursive;
+font-family: 'Righteous', cursive;
+font-family: 'Permanent Marker', cursive; */
+
+        body {
+            margin: 0px auto;
+            font-family: 'Comfortaa', cursive;
+            background-image: url(https://raw.githubusercontent.com/JovanStef/CV/master/Images/pexels-photo-531880.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        * {
+            box-sizing: border-box;
+            /* border: 1px solid black; */
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        p,
+        h1 {
+            margin: 0px;
+        }
+
+        ul {
+            padding: 0px;
+        }
+
+        .flex {
+            display: flex
+        }
+
+        .box-70 {
+            width: 70%;
+        }
+
+        .box-50 {
+            width: 50%;
+        }
+
+        .box-30 {
+            width: 30%;
+        }
+
+        .flex {
+            display: flex;
+            flex-flow: column;
+        }
+
+        .master-wrapper {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            min-height: 300px;
+        }
+
+        .clippy-background {
+            background-color: yellowgreen;
+            -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .clippy {
+            width: 90%;
+            height: 90%;
+            background-color: white;
+            align-items: center;
+            -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+            overflow: hidden;
+        }
+
+        .menu-container {
+            flex-flow: row wrap;
+            justify-content: flex-start;
+            position: relative;
+        }
+
+        .profile-img-holder-background {
+            width: 180px;
+            height: 180px;
+            transition: all 1s ease-in-out;
+        }
+
+        .profile-img-holder img {
+            height: auto;
+            width: 350%;
+        }
+
+        .hamMenu-holder {
+
+            justify-content: center;
+        }
+
+        .hamMenu-holder i {
+            font-size: 25px;
+            color: yellowgreen;
+        }
+
+        .hamMenu-holder-background {
+            width: 65px;
+            height: 65px;
+            position: absolute;
+            transition: all 1s ease-in-out;
+            left: 80%;
+            right: 0%;
+        }
+
+        .move-menuHolder {
+            top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            right: 0%;
+            left: 0%;
+        }
+
+        .header-holder {
+            text-align: center;
+            width: 100%;
+            margin-top: 15px;
+            padding: 10px;
+            border: 5px solid yellowgreen;
+            background-color: white;
+            transition: all 1s ease-in-out;
+
+
+        }
+
+        .header-name {
+            font-size: 25px;
+            color: yellowgreen;
+            font-family: 'Permanent Marker', cursive;
+        }
+
+        .opacity-transition {
+            opacity: 0;
+            filter: blur(5px);
+        }
+
+
+        .popUp-menu-cointeiner {
+            opacity: 0;
+            transition: all 1s ease-in-out;
+            padding: 50px;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .menuHead {
+            display: none;
+            /* text-shadow:2px 2px yellowgreen;
+            font-size: 100%; */
+        }
+
+        div[class*='pop_menu_item_Background-'] {
+
+            justify-content: center;
+            width: 95px;
+            height: 95px;
+            position: absolute;
+        }
+
+        .reverse-opacity-transition {
+            opacity: 1;
+        }
+
+        div[class*='pop_menu_item-'] {
+            align-items: center;
+            justify-content: center;
+        }
+
+        div[class*='pop_menu_item-'] i {
+            text-shadow: 2px 2px rgba(153, 205, 50, 0.445);
+
+            font-size: 250%;
+            color: yellowgreen;
+        }
+
+        .pop_menu_item_Background-0 {
+            left: 5%;
+        }
+
+        .pop_menu_item_Background-1 {
+            top: 100px;
+        }
+
+        .pop_menu_item_Background-2 {
+            right: 5%;
+        }
+
+        div[class*='section-container-'] {
+            margin-top: 120px;
+            flex-flow: row;
+        }
+
+        .section {
+            width: 50%;
+        }
+
+        .item-wrapper {
+            flex-flow: row;
+            padding: 5px;
+        }
+
+        .list {
+            color: yellowgreen;
+            font-size: 170%;
+        }
+
+        .list-item {
+            font-size: 50%;
+            justify-content: center;
+            font-weight: bolder;
+            padding-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='master-wrapper'></div>
+    <!-- <div class="master-wrapper flex">
+        <div class="nav-bio-wrapper flex box-30">
+            <div class="menu flex box-30">
+                <a href="#web-design">
+                    <div class="menu-icon flex" id="web">
+                        <i class="fas fa-code"></i>
+                        <p class="web-icon-head">Web design</p>
+                    </div>
+                </a>
+                <a href="#graphic-design">
+                    <div class="menu-icon flex" id="graphic">
+                        <i class="fas fa-pen-nib"></i>
+                        <p class="graphic-icon-head">Graphic design</p>
+                    </div>
+                </a>
+                <a href="#bio">
+                    <div class="menu-icon flex" id="info">
+                        <i class="fas fa-info"></i>
+                        <p class="info-icon-head">Bio & Contact</p>
+                    </div>
+                </a>
+            </div>
+            <div class="info-bio flex box-70">
+                <div class="color-wrapper flex">
+                    <img src="https://raw.githubusercontent.com/JovanStef/CV/master/Images/pexels-photo-1531677.jpeg" />
+
+                </div>
+
+                <div class="info-wrapper flex">
+                    <div class="cv-image flex">
+                        <img src="https://raw.githubusercontent.com/JovanStef/CV/master/cv-image.jpg"
+                            alt="cv-image.jpg">
+                    </div>
+                    <h1 class="main-head">Jovan <span class="last-name">STEFANOVSKI</span></h1>
+                    <div class="info-icon-wrapper flex">
+                        <a href="https://github.com/JovanStef/" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/jovan-stefanovski-7b16b8192/" target="_blank"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/JovanStef/CV/blob/master/CV%20Jovan%20Stefanovski%20ENG.pdf"
+                            target="_blank"><i class="far fa-file-pdf"></i></a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="content flex box-70">
+            <div class="section intro flex">
+                <h1>“ The most important property of a program is whether it accomplishes the intention of its user. ”
+                    <p> C.A.R. Hoare</p>
+                </h1>
+                <div class="intro-gif"><img src="https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif" /></div>
+            </div>
+            <div class="section web-section-wrapper flex" id="web-design">
+                <i class="fas fa-code"></i>
+                <h1 class="web-section-head">Web design</h1>
+                <div class="sub-section flex">
+                    <ul class="sub-section-left box-50">Front End
+                        <li><i class="fab fa-html5"></i> HTML</li>
+                        <li><i class="fab fa-css3-alt"></i> CSS</li>
+                        <li><i class="fab fa-js-square"></i> JavaScript</li>
+                        <li><i class="fab fa-js-square"></i> JQuery</li>
+                        <li><i class="fab fa-react"></i> React*</li>
+                    </ul>
+                    <ul class="sub-section-right box-50">Back End
+                        <li><i class="fab fa-node-js"></i> NodeJS</li>
+                        <li><i class="fas fa-database"></i> MySQL</li>
+                        <li><i class="fas fa-atlas"></i> API</li>
+                        <li><i class="fas fa-server"></i> Relational database</li>
+                        <li><i class="fas fa-user-astronaut"></i> Postman</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section graphic-section-wrapper flex" id="graphic-design">
+                <i class="fas fa-pen-nib"></i>
+                <h1 class="graphic-section-head">Graphic design</h1>
+                <div class="sub-section flex">
+                    <ul class="sub-section-left box-50">Graphic Design
+                        <li><i class="fas fa-bezier-curve"></i> Illustrator</li>
+                        <li><i class="far fa-file-image"></i> Photoshop</li>
+                        <li><i class="far fa-newspaper"></i> In Design</li>
+                        <li><i class="fas fa-bezier-curve"></i> Corel</li>
+                        <li><i class="fas fa-swatchbook"></i> Color proofing / Pantone</li>
+                    </ul>
+                    <ul class="sub-section-right box-50">Pre Press & Printing
+                        <li><i class="far fa-object-ungroup"></i> Pre Press</li>
+                        <li><i class="fas fa-print"></i> Digital printing</li>
+                        <li><i class="fab fa-adversal"></i> Indoor / Outdoor Advertising</li>
+                        <li><i class="fas fa-chalkboard-teacher"></i> Machine operator</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section contact-section-wrapper flex" id="bio">
+                <i class="fas fa-info"></i>
+                <h1 class="contact-section-head">Bio & Contact</h1>
+                <div class="sub-section flex">
+                    <ul class="sub-section-right box-50">Bio
+                        <li><i class="fas fa-user-tie"></i> Full Stack Web / Graphic Designer</li>
+                        <li><i class="fas fa-graduation-cap"></i> Education
+                        <li> * Code Academy</li>
+                        <li> * High School:"Lazar Tanev"</li>
+                        </li>
+                        <li><i class="fas fa-briefcase"></i> Work Experience
+                        <li> * 8+ Years Graphics & Printing</li>
+                        <li>Mamut Design / Prografika / X Print</li>
+
+                        </li>
+
+                    </ul>
+                    <ul class="sub-section-left box-50">Contact
+                        <li><a href="tel:389 77 892 059"><i class="fas fa-phone-square"></i> +389 77 892 059</li></a>
+                        <li><a href="mailto:jov.box@outlook.com"><i class="fas fa-envelope-square"></i>
+                                jov.box@outlook.com</li></a>
+                        <li><i class="fas fa-map-marker-alt"></i> Skopje / Macedonia</li>
+                        <li><a href="https://www.linkedin.com/in/jovan-stefanovski-7b16b8192/" target="_blank"><i
+                                    class="fab fa-linkedin-in"></i> Linked In</a></a>
+                        <li> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        const master = $('.master-wrapper');
+        var menuContainer = $('<div>').attr('class', 'menu-container flex');
+        var profileImgHolderBackground = $('<div>').attr('class', 'profile-img-holder-background clippy-background flex');
+        var profileImgHolder = $('<div>').attr('class', 'profile-img-holder clippy flex');
+        var profileImg = $('<img/>').attr('class', 'profile-img flex').attr('src', 'https://raw.githubusercontent.com/JovanStef/CV/master/cv-image.jpg');
+
+        var hamMenuHolderBackground = $('<div>').attr('class', 'hamMenu-holder-background clippy-background flex');
+        var hamMenuHolder = $('<div>').attr('class', 'hamMenu-holder clippy flex').html('<i class="fas fa-bars"></i>');
+
+        var headerHolder = $('<div>').attr('class', 'header-holder  flex');
+        var header = $('<h1>').attr('class', 'header-name').text('Jovan Stefanovski');
+
+
+        $(profileImgHolder).append(profileImg);
+        $(profileImgHolderBackground).append(profileImgHolder);
+        $(menuContainer).append(profileImgHolderBackground);
+
+        $(hamMenuHolderBackground).append(hamMenuHolder);
+        $(menuContainer).append(hamMenuHolderBackground);
+
+        // $(menuContainer).append(profileImgHolderBackground);
+        $(headerHolder).append(header);
+        $(menuContainer).append(headerHolder);
+
+
+        $(master).append(menuContainer)
+
+        //functions & events
+        var pop_menu_content = [
+            {
+                heading: 'Web Development',
+                icon: '<i class="fas fa-code"></i>'
+            },
+            {
+                heading: 'Graphic Design',
+                icon: '<i class="fas fa-pen-nib"></i>'
+            },
+            {
+                heading: 'Contact & Bio',
+                icon: '<i class="fas fa-info"></i>'
+            }];
+        var content = [
+            {
+                webDev: {
+                    frontEnd: [
+                        {
+                            heading: 'HTML',
+                            icon: '<i class="fab fa-html5"></i>'
+                        },
+                        {
+                            heading: 'CSS',
+                            icon: '<i class="fab fa-css3-alt"></i>'
+                        },
+                        {
+                            heading: 'JavaScript',
+                            icon: '<i class="fab fa-js-square">'
+                        },
+                        {
+                            heading: 'JQuery',
+                            icon: '<i class="fab fa-js-square">'
+                        },
+                        {
+                            heading: 'React*',
+                            icon: '<i class="fab fa-react"></i>'
+                        }
+
+                    ],
+                    backEnd: [
+                        {
+                            heading: 'NodeJS',
+                            icon: '<i class="fab fa-node-js"></i>'
+                        },
+                        {
+                            heading: 'MySQL',
+                            icon: '<i class="fas fa-database"></i>'
+                        },
+                        {
+                            heading: 'API',
+                            icon: '<i class="fas fa-atlas"></i>'
+                        },
+                        {
+                            heading: 'Ralational Database',
+                            icon: '<i class="fas fa-server"></i>'
+                        },
+                        {
+                            heading: 'Postman',
+                            icon: '<i class="fas fa-user-astronaut"></i>'
+                        }
+
+                    ]
+                },
+                graphic: {
+                    graphicDesign: [
+                        {
+                            heading: 'Illustrator',
+                            icon: '<i class="fas fa-bezier-curve">'
+                        },
+                        {
+                            heading: 'Photoshop',
+                            icon: '<i class="far fa-file-image">'
+                        },
+                        {
+                            heading: 'In Design',
+                            icon: '<i class="far fa-newspaper"></i>'
+                        },
+                        {
+                            heading: 'Corel',
+                            icon: '<i class="fas fa-bezier-curve"></i>'
+                        },
+                        {
+                            heading: 'Color proofing / Pantone',
+                            icon: '<i class="fas fa-swatchbook"></i>'
+                        }
+
+                    ],
+                    prePrint: [
+                        {
+                            heading: 'Pre Press',
+                            icon: '<i class="far fa-object-ungroup"></i>'
+                        },
+                        {
+                            heading: 'Digital printing',
+                            icon: '<i class="fas fa-print"></i>'
+                        },
+                        {
+                            heading: 'Indoor / Outdoor Advertising',
+                            icon: '<i class="fab fa-adversal"></i>'
+                        },
+                        {
+                            heading: 'Machine operator',
+                            icon: '<i class="fas fa-chalkboard-teacher"></i>'
+                        }
+
+                    ]
+                }, infoContact: {
+                    bio: [
+                        {
+                            heading: 'Full Stack Web / Graphic Designer',
+                            icon: '<i class="fas fa-user-tie"></i>'
+                        },
+                        {
+                            heading: 'Education',
+                            icon: '<i class="fas fa-graduation-cap"></i> '
+                        },
+                        {
+                            heading: 'Code Academy',
+                            icon: '*'
+                        },
+                        {
+                            heading: 'High School: "Lazar Tanev"',
+                            icon: '*'
+                        },
+                        {
+                            heading: 'Work Experience',
+                            icon: '<i class="fas fa-briefcase"></i>'
+                        },
+                        {
+                            heading: '8+ Years Graphics & Printing',
+                            icon: '*'
+                        },
+                        {
+                            heading: 'Mamut Design / Prografika / X Print',
+                            icon: '*'
+                        }
+
+                    ],
+                    contact: [
+                        {
+                            heading: '<a href="tel:389 77 892 059"> +389 77 892 059</a>',
+                            icon: '<i class="fas fa-phone-square"></i>'
+                        },
+                        {
+                            heading: '<a href="mailto:jov.box@outlook.com">jov.box@outlook.com</a>',
+                            icon: '<i class="fas fa-envelope-square"></i>'
+                        },
+                        {
+                            heading: 'Skopje / Macedonia',
+                            icon: '<i class="fas fa-map-marker-alt"></i>'
+                        },
+                        {
+                            heading: '<a href="https://www.linkedin.com/in/jovan-stefanovski-7b16b8192/" target="_blank"> Linked In</a>',
+                            icon: '<i class="fab fa-linkedin-in"></i>'
+                        }
+
+                    ]
+                }
+            }
+        ]
+        createContent = (contLeft, contRight, contHead, lefHead, RightHead) => {
+            var sectionContainer = $('<div>').attr('class', 'flex section-container-' + contHead.heading);
+            var icon = $('<div>').html(contHead.icon);
+            var contentHeading = $('<h1>').attr('class', 'flex contentHeading-' + contHead.heading).text(contHead.heading);
+            var sectionLeft = $('<div>').attr('class', 'flex section');
+            var sectionRight = $('<div>').attr('class', 'flex section');
+            var leftList = $('<ul>').attr('class', 'flex list').text(lefHead);
+            var rightList = $('<ul>').attr('class', 'flex list').text(RightHead);
+
+            contLeft.forEach((elem, index) => {
+                var listItem = $('<li>').attr('class', 'flex list-item').html(elem.heading);
+                var listIcon = $('<div>').attr('class', 'flex item-wrapper').html(elem.icon);
+                $(listIcon).append(listItem);
+                $(leftList).append(listIcon);
+            });
+            contRight.forEach((elem, index) => {
+                var listItem = $('<li>').attr('class', 'flex list-item').html(elem.heading);
+                var listIcon = $('<div>').attr('class', 'flex item-wrapper').html(elem.icon);
+                $(listIcon).append(listItem);
+                $(rightList).append(listIcon);
+            });
+            $(sectionLeft).append(leftList);
+            $(sectionRight).append(rightList);
+
+            $(sectionContainer).append(sectionLeft);
+            $(sectionContainer).append(sectionRight);
+
+            $('.content-wrapper').append(sectionContainer);
+
+
+
+
+        }
+        createPopUpMenu = () => {
+            var popUp_menuContainer = $('<div>').attr('class', 'popUp-menu-cointeiner flex');
+            var menuHead = $('<h1>').attr('class', 'menuHead flex').text('MENU');
+            $(popUp_menuContainer).append(menuHead);
+            pop_menu_content.forEach((elem, index) => {
+                var pop_menu_item_Background = $('<div>').attr('class', 'clippy-background flex pop_menu_item_Background-' + index);
+                var pop_menu_item = $('<div>').attr('class', 'clippy flex pop_menu_item-' + index).html(elem.icon);
+                $(pop_menu_item_Background).append(pop_menu_item);
+                $(popUp_menuContainer).append(pop_menu_item_Background);
+                $(pop_menu_item_Background).mouseover(() => {
+                    $(menuHead).text(elem.heading);
+                })
+                $(pop_menu_item_Background).mouseout(() => {
+                    $(menuHead).text('MENU');
+                })
+
+                $(pop_menu_item_Background).click((event) => {
+                    $('.content-wrapper').html(' ');
+                    var getClassName = $(event.target).attr('class').split('-');
+                    getClassName = getClassName[getClassName.length - 1];
+                    if (getClassName == 'code' || getClassName == '0') {
+                        var cont = content[0].webDev
+                        createContent(cont.frontEnd, cont.backEnd, pop_menu_content[0], 'Front End', 'Back End');
+                    } else if (getClassName == 'nib' || getClassName == '1') {
+                        var cont = content[0].graphic
+                        createContent(cont.graphicDesign, cont.prePrint, pop_menu_content[1], 'Graphic Design', 'Pre Press & Printing');
+                    } else if (getClassName == 'info' || getClassName == '2') {
+                        var cont = content[0].infoContact
+                        createContent(cont.bio, cont.contact, pop_menu_content[2], 'Bio', 'Contact');
+                    }
+                })
+            });
+            $(master).append(popUp_menuContainer);
+            setTimeout(() => {
+                $(popUp_menuContainer).addClass('reverse-opacity-transition');
+            }, 100)
+
+        }
+        $(hamMenuHolder).click(() => {
+
+            $(headerHolder).addClass('opacity-transition');
+            $(profileImgHolderBackground).addClass('opacity-transition');
+            $(hamMenuHolderBackground).addClass('move-menuHolder');
+            setTimeout(() => {
+                $(headerHolder).css({ 'display': 'none' });
+                $(profileImgHolderBackground).css({ 'display': 'none' });
+                createPopUpMenu();
+                var contentWrapper = $('<div>').attr('class', 'flex content-wrapper');
+                $(master).append(contentWrapper);
+            }, 500)
+
+        })
+
+
+    </script>
+</body>
+
+</html>
